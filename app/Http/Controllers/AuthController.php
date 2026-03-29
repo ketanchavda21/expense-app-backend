@@ -91,12 +91,12 @@ class AuthController extends Controller
             );
 
             $token = $user->createToken('auth_token')->plainTextToken;
-            $frontendUrl = env('FRONTEND_URL', 'http://localhost:5173');
+            $frontendUrl = env('FRONTEND_URL', 'https://expense-app-frontend-15i9.onrender.com');
 
             return redirect($frontendUrl . '/auth/callback?token=' . $token);
             
         } catch (\Exception $e) {
-            $frontendUrl = env('FRONTEND_URL', 'http://localhost:5173');
+            $frontendUrl = env('FRONTEND_URL', 'https://expense-app-frontend-15i9.onrender.com');
             return redirect($frontendUrl . '/login?error=oauth_failed');
         }
     }
